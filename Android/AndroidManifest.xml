@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.usc.ee579.group6.uis"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="10" />
+
+    <application
+        android:icon="@drawable/handshake"
+        android:label="U.I.S" >
+        <activity
+            android:name=".initialisationClass">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".listScreen"
+            android:label="@string/list" >
+        </activity>
+        
+        <activity
+            android:name=".sendMessage"
+            android:label="@string/sendMessage" >
+        </activity>
+        
+        <activity
+            android:name=".negContactRequest"
+            android:label="@string/negContactReq" >
+        </activity>
+        
+        <activity
+            android:name=".contactRequest"
+            android:label="@string/contactReq" >
+        </activity>
+        
+        <activity
+            android:name=".seeContactInfo"
+            android:label="@string/contactInfo" >
+        </activity>
+        
+        <activity
+            android:name=".messageReading"
+            android:label="@string/message" >
+        </activity>
+        
+        <activity
+            android:name=".readRcvdMessage"
+            android:label="@string/msgRead" >
+        </activity>
+        
+        <activity
+            android:name=".readContactPage"
+            android:label="@string/contactView" >
+        </activity>
+        <activity
+            android:name=".notAuthorized"
+            android:label="" >
+        </activity>
+        
+        <service
+  			 android:enabled="true"
+  			 android:name=".serverService"/>
+    </application>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+</manifest>
