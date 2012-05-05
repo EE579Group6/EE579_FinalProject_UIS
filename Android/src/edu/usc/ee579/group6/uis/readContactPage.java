@@ -15,7 +15,7 @@ import android.widget.TextView;
  * EMAIL:
  */
 
-public class readContactPage extends Activity {
+public class ReadContactPage extends Activity {
 	
 	String senderName;
 	
@@ -30,7 +30,7 @@ public class readContactPage extends Activity {
 		TextView email = (TextView) this.findViewById(R.id.TextView03);
 		
 		senderName = getIntent().getStringExtra("contactClickedName");
-		String contact = serverService.rcvdContactInfoMap.get(senderName);
+		String contact = ServerService.rcvdContactInfoMap.get(senderName);
 		String[] editContact = contact.split(",");
 		name.setText("Name: "+editContact[0]);
 		phone.setText("Phone: "+editContact[1]);

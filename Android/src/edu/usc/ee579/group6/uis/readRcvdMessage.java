@@ -16,7 +16,7 @@ import android.widget.TextView;
  * is extracted and then it is displayed on the screen.
  */
 
-public class readRcvdMessage extends Activity {
+public class ReadRcvdMessage extends Activity {
 	
 	
 	
@@ -34,12 +34,12 @@ public class readRcvdMessage extends Activity {
 		Button delete = (Button) findViewById(R.id.delete);
 		
 		senderName = getIntent().getStringExtra("clickedName");
-		String msg = serverService.rcvdMessagesMap.get(senderName);
+		String msg = ServerService.rcvdMessagesMap.get(senderName);
 		
 		message.setText(msg);
 		
 		//On clicking OK button, you will be taken back to the attendees list screen
-		final Intent msgListScreen = new Intent(this,edu.usc.ee579.group6.uis.listScreen.class);
+		final Intent msgListScreen = new Intent(this,edu.usc.ee579.group6.uis.ListScreen.class);
 		ok.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -56,7 +56,7 @@ public class readRcvdMessage extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				serverService.rcvdMessagesMap.remove(senderName);
+				ServerService.rcvdMessagesMap.remove(senderName);
 				startActivity(msgListScreen);
 				
 			}

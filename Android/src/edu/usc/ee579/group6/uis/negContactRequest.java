@@ -15,7 +15,7 @@ import android.widget.TextView;
  * by the other user.
  */
 
-public class negContactRequest extends Activity {
+public class NegContactRequest extends Activity {
 	
 	protected Button closeButton;
 	
@@ -30,7 +30,7 @@ public class negContactRequest extends Activity {
 			message.setText(negReply);
 			
 			closeButton = (Button) findViewById(R.id.close_button);
-			final Intent showListScreen = new Intent(this,edu.usc.ee579.group6.uis.listScreen.class);
+			final Intent showListScreen = new Intent(this,edu.usc.ee579.group6.uis.ListScreen.class);
 			//Upon clicking the close button, the user is taken back to the attendees list screen
 			closeButton.setOnClickListener(new OnClickListener() {
 		 

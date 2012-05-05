@@ -38,7 +38,7 @@ import android.widget.Toast;
  *  attendees.
  */
 
-public class initialisationClass extends Activity {
+public class InitialisationClass extends Activity {
 	
 	File list = Environment.getExternalStorageDirectory();
     File  listFile;
@@ -157,8 +157,8 @@ public class initialisationClass extends Activity {
 			String listMsg = listReply.readLine();
 			
 			
-			Intent nextScreen = new Intent(this,edu.usc.ee579.group6.uis.listScreen.class);
-			Intent notAuthorizedScreen = new Intent(this,edu.usc.ee579.group6.uis.notAuthorized.class);
+			Intent nextScreen = new Intent(this,edu.usc.ee579.group6.uis.ListScreen.class);
+			Intent notAuthorizedScreen = new Intent(this,edu.usc.ee579.group6.uis.NotAuthorized.class);
 			
 			//Checking if the user is authorized or not
 			if (listMsg.equals("invalidUser")){

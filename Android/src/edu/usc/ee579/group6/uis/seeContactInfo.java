@@ -22,7 +22,7 @@ import android.widget.AdapterView.OnItemClickListener;
  * contact display screen.
  */
 
-public class seeContactInfo extends Activity {
+public class SeeContactInfo extends Activity {
 	
 	public static String[] contactNames;
 	int i=0;
@@ -37,7 +37,7 @@ public class seeContactInfo extends Activity {
 		
 		StringBuffer sendString = new StringBuffer();
 		
-		Iterator<Entry<String, String>> it = serverService.rcvdContactInfoMap.entrySet().iterator();
+		Iterator<Entry<String, String>> it = ServerService.rcvdContactInfoMap.entrySet().iterator();
 		// Retrieving the names of the contact senders
 	  	while(it.hasNext()) {
 
@@ -54,7 +54,7 @@ public class seeContactInfo extends Activity {
 		ListView list = (ListView)findViewById(R.id.list);
 		adapter = new ArrayAdapter<String>(this, R.layout.msg_reading_display, contactNames);
 	    list.setAdapter(adapter);
-	    final Intent readContact = new Intent(this,edu.usc.ee579.group6.uis.readContactPage.class);
+	    final Intent readContact = new Intent(this,edu.usc.ee579.group6.uis.ReadContactPage.class);
 	    list.setOnItemClickListener(new OnItemClickListener() {
 			
 			@Override

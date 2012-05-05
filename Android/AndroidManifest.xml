@@ -10,7 +10,7 @@
         android:icon="@drawable/handshake"
         android:label="U.I.S" >
         <activity
-            android:name=".initialisationClass">
+            android:name=".InitialisationClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -19,46 +19,46 @@
         </activity>
         
         <activity
-            android:name=".listScreen"
+            android:name=".ListScreen"
             android:label="@string/list" >
         </activity>
         
         <activity
-            android:name=".sendMessage"
+            android:name=".SendMessage"
             android:label="@string/sendMessage" >
         </activity>
         
         <activity
-            android:name=".negContactRequest"
+            android:name=".NegContactRequest"
             android:label="@string/negContactReq" >
         </activity>
         
         <activity
-            android:name=".contactRequest"
+            android:name=".ContactRequest"
             android:label="@string/contactReq" >
         </activity>
         
         <activity
-            android:name=".seeContactInfo"
+            android:name=".SeeContactInfo"
             android:label="@string/contactInfo" >
         </activity>
         
         <activity
-            android:name=".messageReading"
+            android:name=".MessageReading"
             android:label="@string/message" >
         </activity>
         
         <activity
-            android:name=".readRcvdMessage"
+            android:name=".ReadRcvdMessage"
             android:label="@string/msgRead" >
         </activity>
         
         <activity
-            android:name=".readContactPage"
+            android:name=".ReadContactPage"
             android:label="@string/contactView" >
         </activity>
         <activity
-            android:name=".notAuthorized"
+            android:name=".NotAuthorized"
             android:label="" >
         </activity>
         

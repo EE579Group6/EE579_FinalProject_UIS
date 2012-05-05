@@ -29,7 +29,7 @@ import android.widget.Toast;
  * back to attendees list screen.
  */
 
-public class sendMessage extends Activity {
+public class SendMessage extends Activity {
 	
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -44,8 +44,8 @@ public class sendMessage extends Activity {
 			textMessage.setSelection(0);
 			
 			
-			final Intent backToListScreen = new Intent(this,edu.usc.ee579.group6.uis.listScreen.class);
-			final Intent backToWriteScreen = new Intent(this,edu.usc.ee579.group6.uis.sendMessage.class);
+			final Intent backToListScreen = new Intent(this,edu.usc.ee579.group6.uis.ListScreen.class);
+			final Intent backToWriteScreen = new Intent(this,edu.usc.ee579.group6.uis.SendMessage.class);
 			sendButton.setOnClickListener(new OnClickListener()
 			 {
 				 public void onClick(View v)
@@ -59,11 +59,11 @@ public class sendMessage extends Activity {
 				    Socket sendMessageSocket;
 					try {
 						// Opening a socket to the server to sent the mesage packet
-						sendMessageSocket = new Socket(initialisationClass.IP[1],listScreen.serverPort);					
+						sendMessageSocket = new Socket(InitialisationClass.IP[1],ListScreen.serverPort);					
 					
 					PrintWriter outStream = new PrintWriter(new BufferedWriter(new OutputStreamWriter(sendMessageSocket.getOutputStream())), true);
 					// Packet format for sending the mesaeg to the desired user
-					outStream.println("sendMessage,"+ initialisationClass.myName + "," + listScreen.listItemName + ",~" + text);
+					outStream.println("sendMessage,"+ InitialisationClass.myName + "," + ListScreen.listItemName + ",~" + text);
 					
 					BufferedReader in = new BufferedReader(new InputStreamReader(sendMessageSocket.getInputStream()));
 					String incomingMsg = in.readLine();				    

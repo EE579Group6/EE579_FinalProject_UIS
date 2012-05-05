@@ -27,7 +27,7 @@ import android.widget.Toast;
  * upon any activity.
  */
 
-public class serverService extends Service {
+public class ServerService extends Service {
 	
 	//Creating a hash map to store the messages received from the users. These are stored in <Sender's Name,Message> pairs
 	public static Map<String,String> rcvdMessagesMap = new HashMap<String,String>();
@@ -204,12 +204,12 @@ public class serverService extends Service {
 	switch (type){
 	case 1:
 		// The PendingIntent will launch the message inbox screen
-		contentIntent = PendingIntent.getActivity(this, 1, new Intent(this, edu.usc.ee579.group6.uis.messageReading.class), android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+		contentIntent = PendingIntent.getActivity(this, 1, new Intent(this, edu.usc.ee579.group6.uis.MessageReading.class), android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
 		notification.setLatestEventInfo(this, "You have an message", ".", contentIntent);
 		break;
 	case 2:
 		
-		Intent contactReq = new Intent(this, edu.usc.ee579.group6.uis.contactRequest.class);
+		Intent contactReq = new Intent(this, edu.usc.ee579.group6.uis.ContactRequest.class);
 		
 		contactReq.putExtra("contactRequestor", contactRequestorName);
 		// The PendingIntent will launch the contact request alert screen
@@ -220,13 +220,13 @@ public class serverService extends Service {
 		break;
 	case 3:
 		// The PendingIntent will launch the contact inbox screen
-		contentIntent = PendingIntent.getActivity(this, 1, new Intent(this, edu.usc.ee579.group6.uis.seeContactInfo.class), android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+		contentIntent = PendingIntent.getActivity(this, 1, new Intent(this, edu.usc.ee579.group6.uis.SeeContactInfo.class), android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
 		notification.setLatestEventInfo(this, "You have an contact reply", ".", contentIntent);
 		break;
 		
 	case 4:
 		
-		Intent negContactReq = new Intent(this, edu.usc.ee579.group6.uis.negContactRequest.class);
+		Intent negContactReq = new Intent(this, edu.usc.ee579.group6.uis.NegContactRequest.class);
 		negContactReq.putExtra("contactRejector", contactRejectorName );
 		// The PendingIntent will launch the contact rejection alert
 		contentIntent = PendingIntent.getActivity(this, 1, negContactReq, android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -235,7 +235,7 @@ public class serverService extends Service {
 		
 	case 5:
 		// The PendingIntent will launch the updated list screen
-		contentIntent = PendingIntent.getActivity(this, 1, new Intent(this, edu.usc.ee579.group6.uis.listScreen.class), android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+		contentIntent = PendingIntent.getActivity(this, 1, new Intent(this, edu.usc.ee579.group6.uis.ListScreen.class), android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
 		notification.setLatestEventInfo(this, "You have an updated contact list", ".", contentIntent);
 		break;
 

@@ -49,7 +49,7 @@ import android.widget.Toast;
  * contact information of that user.
  */
 
-public class listScreen extends Activity {
+public class ListScreen extends Activity {
 	
 	protected Button startButton;
 	public static BufferedReader readNames;
@@ -65,7 +65,7 @@ public class listScreen extends Activity {
 	private Button readContactButton;
 	
 	
-	private String serverAddr = initialisationClass.IP[1];
+	private String serverAddr = InitialisationClass.IP[1];
     public static int serverPort = 9777;
 	
 	@Override
@@ -82,13 +82,13 @@ public class listScreen extends Activity {
 	
 		
 		// Creating the intent to read the messages from the inbox
-		final Intent viewMessages = new Intent(this, edu.usc.ee579.group6.uis.messageReading.class);
+		final Intent viewMessages = new Intent(this, edu.usc.ee579.group6.uis.MessageReading.class);
 		readMsgButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				
-				if (serverService.rcvdMessagesMap.isEmpty())
+				if (ServerService.rcvdMessagesMap.isEmpty())
 					Toast.makeText(getApplicationContext(), "You have no messages", Toast.LENGTH_SHORT);
 				else
 				startActivity(viewMessages);
@@ -97,12 +97,12 @@ public class listScreen extends Activity {
 		});
 		
 		// Creating the intent to read the contacts from the inbox
-		final Intent viewContacts = new Intent(this, edu.usc.ee579.group6.uis.seeContactInfo.class);
+		final Intent viewContacts = new Intent(this, edu.usc.ee579.group6.uis.SeeContactInfo.class);
 		readContactButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				if (serverService.rcvdContactInfoMap.isEmpty())
+				if (ServerService.rcvdContactInfoMap.isEmpty())
 					Toast.makeText(getApplicationContext(), "You have no contacts", Toast.LENGTH_SHORT);
 				else
 				startActivity(viewContacts);
@@ -134,7 +134,7 @@ public class listScreen extends Activity {
 		    registerForContextMenu(list);  
 		    
 		    // Starting the background server service to listen for any incoming messages
-		    Intent serverIntent = new Intent(getApplicationContext(), serverService.class);
+		    Intent serverIntent = new Intent(getApplicationContext(), ServerService.class);
 		    context.startService(serverIntent);
 
 	}
@@ -171,7 +171,7 @@ public class listScreen extends Activity {
 		  if (menuItemName.equals("Send Message"))
 		  {
 			  // Calling the intent to take to message typing screen
-			  Intent messageScreen = new Intent(this,edu.usc.ee579.group6.uis.sendMessage.class);
+			  Intent messageScreen = new Intent(this,edu.usc.ee579.group6.uis.SendMessage.class);
 		      startActivity(messageScreen);
 		  }
 		  
@@ -183,7 +183,7 @@ public class listScreen extends Activity {
 				
 				PrintWriter outStream = new PrintWriter(new BufferedWriter(new OutputStreamWriter(contactRequestSocket.getOutputStream())), true);
 				//The format for sending the get contact information request
-				outStream.println("getContactInfo,"+ initialisationClass.myName + "," + listItemName);
+				outStream.println("getContactInfo,"+ InitialisationClass.myName + "," + listItemName);
 				contactRequestSocket.close();
 				
 				} catch (UnknownHostException e) {

@@ -24,12 +24,12 @@ import android.widget.Toast;
  * 
  */
 
-public class contactRequest extends Activity {
+public class ContactRequest extends Activity {
 	
 	AlertDialog.Builder builder;
     AlertDialog alert;
     
-	private String serverAddr = initialisationClass.IP[1];
+	private String serverAddr = InitialisationClass.IP[1];
     public int serverPort = 9777;
 	 @Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class contactRequest extends Activity {
 	        builder.setMessage( getIntent().getStringExtra("contactRequestor")+" has asked for your contact information. Would you like sent it?" );
 	        builder.setCancelable(false);
 	        // Action when Yes button is clicked
-	        final Intent showListScreen = new Intent(this,edu.usc.ee579.group6.uis.listScreen.class);
+	        final Intent showListScreen = new Intent(this,edu.usc.ee579.group6.uis.ListScreen.class);
 	        builder.setPositiveButton("YES", new OnClickListener() {
 	            public void onClick(DialogInterface arg0, int arg1) {
 	               
@@ -50,7 +50,7 @@ public class contactRequest extends Activity {
 									
 						PrintWriter outStream = new PrintWriter(new BufferedWriter(new OutputStreamWriter(contactReplySocket.getOutputStream())), true);
 						// Packet format when you want to send your contact information
-						outStream.println("replyToContact,"+ getIntent().getStringExtra("contactRequestor") + "," + initialisationClass.myInfo);
+						outStream.println("replyToContact,"+ getIntent().getStringExtra("contactRequestor") + "," + InitialisationClass.myInfo);
 						contactReplySocket.close();
 						} catch (UnknownHostException e) {
 							
@@ -76,7 +76,7 @@ public class contactRequest extends Activity {
 					
 					PrintWriter outStream = new PrintWriter(new BufferedWriter(new OutputStreamWriter(contactReplySocket.getOutputStream())), true);
 					// Packet format when you don't want to send your contact information
-					outStream.println("negReplyToContact,"+ getIntent().getStringExtra("contactRequestor")+ "," + initialisationClass.myName);
+					outStream.println("negReplyToContact,"+ getIntent().getStringExtra("contactRequestor")+ "," + InitialisationClass.myName);
 					contactReplySocket.close();
 					} catch (UnknownHostException e) {
 						

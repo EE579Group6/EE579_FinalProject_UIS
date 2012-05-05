@@ -25,7 +25,7 @@ import android.widget.TextView;
  * you will be taken to the message reading screen
  */
 
-public class messageReading extends Activity {
+public class MessageReading extends Activity {
 		
   	
 	public static String[] senderNames;
@@ -39,7 +39,7 @@ public class messageReading extends Activity {
 
 		StringBuffer sendString = new StringBuffer();
 		
-		Iterator<Entry<String, String>> it = serverService.rcvdMessagesMap.entrySet().iterator();
+		Iterator<Entry<String, String>> it = ServerService.rcvdMessagesMap.entrySet().iterator();
 
 	  	while(it.hasNext()) {
 	  		//Retrieving the names to users who has sent the messages
@@ -57,7 +57,7 @@ public class messageReading extends Activity {
 	    list.setAdapter(adapter);
 	    
 	    
-	    final Intent readMsg = new Intent(this,edu.usc.ee579.group6.uis.readRcvdMessage.class);
+	    final Intent readMsg = new Intent(this,edu.usc.ee579.group6.uis.ReadRcvdMessage.class);
 	    list.setOnItemClickListener(new OnItemClickListener() {
 			//Upon clicking a name, the message from that user is displayed on the next screen
 			@Override
