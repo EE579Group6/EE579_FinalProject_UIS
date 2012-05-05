@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="Start_Msg">Waiting for reply from server...</string>
+    <string name="app_name">User Identification</string>
+    <string name="Msg">I am starting the app</string>
+    <string name="list">Attendees name</string>
+    <string name="sendMessage">Please enter your message</string>
+    <string name="negContactReq">Contact request rejected</string>
+    <string name="contactReq">Contact requested</string>
+    <string name="contactInfo">Contact Information Inbox</string>
+    <string name="message">Message Inbox</string>
+    <string name="msgRead">Message</string>
+    <string name="contactView">Contact Information</string>
+    
+    
+    
+    <string-array name="menu">
+		<item>Send Message</item>
+		<item>Get Contact Info</item>
+	</string-array>
+
+</resources>
